@@ -84,14 +84,13 @@ Use the finalScore function below to do the following:
 */ 
 
 function finalScore(inning, num){
-  
   let home = 0;
   let away = 0;
+  let total = {'Home': home,'Away': away};
   for(let i = 0; i < num; i++) {
     home = home + inning();
     away = away + inning();
   }
-  let total = {'Home': home,'Away': away};
   return total;
 }
 
