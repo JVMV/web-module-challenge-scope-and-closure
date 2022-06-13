@@ -32,9 +32,11 @@ console.log('example task:', processFirstItem(['foo','bar'],function(str){return
   1. What is the difference between counter1 and counter2?
   counter1 variable count is in function scope, counter2 variable count in global scope.
   2. Which of the two uses a closure? How can you tell?
-  
+  counter1 uses closure becuase the function interacts with an outside vairable.
   3. In what scenario would the counter1 code be preferable? In what scenario would 
-     counter2 be better?  
+     counter2 be better?
+     counter1 would be preferred if you want each external variable to interact separately with the function.
+     counter2 would be preferred if you want each external variable to interact collectively with the function.
 */
 
 // counter1 code
@@ -107,11 +109,17 @@ For example: invoking getInningScore(inning) might return this object:
 }
   */
 
-
-function getInningScore(num) {
-  return finalScore(inning, num);
-
+function getInningScore(inning) {
+  let score = {
+    'Home': inning(),
+    'Away': inning()
+  }
+return score;
 }
+// function getInningScore(num) {
+//   return finalScore(inning, num);
+
+// }
 
 
 /* STRETCH: ⚾️⚾️⚾️ Task 5: scoreboard() ⚾️⚾️⚾️
@@ -154,9 +162,15 @@ Use the scoreboard function below to do the following:
   "This game will require extra innings: Away 10 - Home 10"
 ] */
 // NOTE: There is no test associated with this code; if your output matches the given example, consider it complete!
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(getInningScore, inning, num) {
+  let newArr = [];
+  for(let i = 1; i < num + 1; i++) {
+    let str = `Inning 1: Away ${inning()} - Home ${inning()}`
+  }
+  return newArr;
 }
+
+//console.log(scoreboard(getInningScore, inning, 9));
 
 
 
